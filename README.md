@@ -1,7 +1,7 @@
 # Benchmarks
 
 Totally **unscientific** and mostly unrealistic benchmark that
-[go-faster/ch](github.com/go-faster/ch) project uses to understand performance.
+[go-faster/ch](https://github.com/go-faster/ch) project uses to understand performance.
 
 ```sql
 SELECT number FROM system.numbers LIMIT 500000000
