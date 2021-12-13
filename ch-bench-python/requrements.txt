@@ -1,0 +1,5 @@
+backports.zoneinfo==0.2.1
+clickhouse-driver==0.2.2
+pytz-deprecation-shim==0.1.0.post0
+tzdata==2021.5
+tzlocal==4.1
