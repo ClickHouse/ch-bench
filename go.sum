@@ -14,8 +14,8 @@ github.com/dmarkham/enumer v1.5.3/go.mod h1:bHo+0/Wq157UdDkl/M8poXeb6/0hnjb8HJcE
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/dvyukov/go-fuzz v0.0.0-20210103155950-6a8e9d1f2415/go.mod h1:11Gm+ccJnvAhCNLlf5+cS9KjtbaD5I5zaZpFMsTHWTw=
-github.com/go-faster/ch v0.0.0-20211213190002-90135a03a57a h1:kqmMOhEx6oG4xQBk6GvMrvqmHT6W7RHYTCaBTZUPnlY=
-github.com/go-faster/ch v0.0.0-20211213190002-90135a03a57a/go.mod h1:6lNWUzvg7sLBlDD2XXWHFdIvyGPLzk3faczMPvMQDNU=
+github.com/go-faster/ch v0.4.0 h1:CBUfuJIIlPqebQuStvUTZGgZHMPunLhfYMAJUl+BOYg=
+github.com/go-faster/ch v0.4.0/go.mod h1:4qACc9uKijerpMky5oRtEfKMIyWloWXhJghOi6A2daE=
 github.com/go-faster/city v0.5.0 h1:EB77HmwFpMOApixDEw2QiNhCTdrt9Y7Rzb75oa+Qa2I=
 github.com/go-faster/city v0.5.0/go.mod h1:VQ5/r/zH0JSFarX2aIkRqk4JBu55v45zzXYvNjbWSz4=
 github.com/go-faster/errors v0.5.0 h1:hS/zHFJ2Vb14jcupq5J9tk05XW+PFTmySOkDRByHBo4=
@@ -30,6 +30,8 @@ github.com/google/uuid v1.2.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+
 github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/jmoiron/sqlx v1.2.0/go.mod h1:1FEQNm3xlJgrMD+FBdI9+xvCksHtbpVBBw5dYhBSsks=
+github.com/klauspost/compress v1.13.6 h1:P76CopJELS0TiO2mebmnzgWaajssP/EszplttgQxcgc=
+github.com/klauspost/compress v1.13.6/go.mod h1:/3/Vjq9QcHkK5uEr5lBEmyoZ1iFhe47etQ6QUkpK6sk=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=

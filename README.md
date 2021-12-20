@@ -18,8 +18,9 @@ is significantly higher, so results can be slightly surprising.
 | Name                       | Protocol | Time     | RAM     | Speedup |
 |----------------------------|----------|----------|---------|---------|
 | clickhouse-client (C++)    | TCP      | 0.5s     | N/A     | 0.65x   |
-| **go-faster/ch**           | **TCP**  | **0.8s** | **10M** | 1x      |
-| clickhouse-go              | TCP      | 35s      | 182M    | 44x     |
-| mailru/go-clickhouse       | HTTP     | 4m13s    | 13M     | 316x    |
-| clickhouse-driver (Python) | TCP      | 37s      | 60M     | 46x     |
-| clickhouse-rs  (Rust)      | TCP      | 27s      | 182M    | 33x     |
+| clickhouse-cpp (C++)       | TCP      | 0.64s    | 6.7M    | 0.91x   |
+| **go-faster/ch**           | **TCP**  | **0.7s** | **10M** | 1x      |
+| clickhouse-go              | TCP      | 35s      | 182M    | 50x     |
+| mailru/go-clickhouse       | HTTP     | 4m13s    | 13M     | 360x    |
+| clickhouse-driver (Python) | TCP      | 37s      | 60M     | 52x     |
+| clickhouse-rs  (Rust)      | TCP      | 27s      | 182M    | 38x     |

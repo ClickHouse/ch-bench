@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/ClickHouse/clickhouse-go v1.5.1
 	github.com/dustin/go-humanize v1.0.0
-	github.com/go-faster/ch v0.0.0-20211213190002-90135a03a57a
+	github.com/go-faster/ch v0.4.0
 	github.com/go-faster/errors v0.5.0
 	github.com/mailru/go-clickhouse v1.7.0
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
@@ -16,6 +16,7 @@ require (
 	github.com/dmarkham/enumer v1.5.3 // indirect
 	github.com/go-faster/city v0.5.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/pascaldekloe/name v1.0.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.12 // indirect
 	go.opentelemetry.io/otel v1.3.0 // indirect
