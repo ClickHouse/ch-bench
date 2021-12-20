@@ -15,12 +15,13 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                       | Protocol | Time     | RAM     | Speedup |
-|----------------------------|----------|----------|---------|---------|
-| clickhouse-client (C++)    | TCP      | 0.5s     | N/A     | 0.65x   |
-| clickhouse-cpp (C++)       | TCP      | 0.64s    | 6.7M    | 0.91x   |
-| **go-faster/ch**           | **TCP**  | **0.7s** | **10M** | 1x      |
-| clickhouse-rs  (Rust)      | TCP      | 27s      | 182M    | 38x     |
-| clickhouse-go              | TCP      | 35s      | 184M    | 50x     |
-| clickhouse-driver (Python) | TCP      | 37s      | 60M     | 52x     |
-| mailru/go-clickhouse       | HTTP     | 4m13s    | 13M     | 360x    |
+| Name                        | Protocol | Time  | RAM  | Speedup |
+|-----------------------------|----------|-------|------|---------|
+| clickhouse-client (C++)     | TCP      | 0.5s  | N/A  | 0.65x   |
+| clickhouse-cpp (C++)        | TCP      | 0.64s | 6.7M | 0.91x   |
+| **go-faster/ch**            | **TCP**  | 0.7s  | 10M  | 1x      |
+| vahid-sohrabloo/chconn (Go) | TCP      | 5s    | 10M  | 7x      |
+| clickhouse-rs  (Rust)       | TCP      | 27s   | 182M | 38x     |
+| clickhouse-go               | TCP      | 35s   | 184M | 50x     |
+| clickhouse-driver (Python)  | TCP      | 37s   | 60M  | 52x     |
+| mailru/go-clickhouse        | HTTP     | 4m13s | 13M  | 360x    |
