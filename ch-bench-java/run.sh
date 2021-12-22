@@ -5,7 +5,7 @@ set -e
 : ${DB_HOST:="localhost"}
 : ${DB_PORT:="8123"}
 : ${DRIVER_VERSION:="0.3.2-test3"}
-: ${COMPRESS:="true"}
+: ${COMPRESS:="false"}
 
 JDBC_DRIVER="clickhouse-jdbc-$DRIVER_VERSION-http.jar"
 
@@ -24,4 +24,4 @@ else
 fi
 
 echo "Running..."
-time java -DdbHost="$DB_HOST" -DdbPort="$DB_PORT" -Dcompress="${COMPRESS}" -cp ".:$JDBC_DRIVER" Main $@
+/usr/bin/time -v java -DdbHost="$DB_HOST" -DdbPort="$DB_PORT" -Dcompress="${COMPRESS}" -cp ".:$JDBC_DRIVER" Main $@
