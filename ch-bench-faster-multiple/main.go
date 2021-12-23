@@ -51,7 +51,7 @@ func run(ctx context.Context) error {
 					atomic.AddUint64(&rows, uint64(block.Rows))
 					return nil
 				},
-				Result: []proto.ResultColumn{
+				Result: proto.Results{
 					{Name: "number", Data: &data},
 				},
 			}); err != nil {
