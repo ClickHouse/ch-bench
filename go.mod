@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/ClickHouse/clickhouse-go v1.5.1
 	github.com/dustin/go-humanize v1.0.0
-	github.com/go-faster/ch v0.4.1-0.20211222021847-c2d03092824d
+	github.com/go-faster/ch v0.6.0
 	github.com/go-faster/errors v0.5.0
 	github.com/mailru/go-clickhouse v1.7.0
 	github.com/vahid-sohrabloo/chconn v0.7.5
