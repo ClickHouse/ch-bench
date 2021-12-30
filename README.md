@@ -17,13 +17,21 @@ is significantly higher, so results can be slightly surprising.
 
 | Name                        | Protocol | Time  | RAM  | Speedup |
 |-----------------------------|----------|-------|------|---------|
-| clickhouse-client (C++)     | TCP      | 0.5s  | N/A  | 0.75x   |
-| clickhouse-cpp (C++)        | TCP      | 0.64s | 6.7M | 0.95x   |
-| **go-faster/ch**            | **TCP**  | 0.67s | 10M  | 1x      |
-| vahid-sohrabloo/chconn (Go) | TCP      | 5s    | 10M  | 7x      |
-| clickhouse-jdbc (Java)      | HTTP     | 10s   | 702M | 14x     |
-| clickhouse-rs (Rust)        | TCP      | 27s   | 182M | 38x     |
-| clickhouse-go               | TCP      | 35s   | 184M | 50x     |
-| clickhouse-driver (Python)  | TCP      | 37s   | 60M  | 52x     |
-| mailru/go-clickhouse        | HTTP     | 4m13s | 13M  | 360x    |
+| **go-faster/ch**            | **TCP**  | 0.44s | 10M  | 1x      |
+| clickhouse-client (C++)     | TCP      | 0.5s  | N/A  | 1.14x   |
+| clickhouse-cpp (C++)        | TCP      | 0.64s | 6.7M | 1.45x   |
+| vahid-sohrabloo/chconn (Go) | TCP      | 5s    | 10M  | 11x     |
+| clickhouse-jdbc (Java)      | HTTP     | 10s   | 702M | 22x     |
+| clickhouse-rs (Rust)        | TCP      | 27s   | 182M | 61x     |
+| clickhouse-go               | TCP      | 35s   | 184M | 79x     |
+| clickhouse-driver (Python)  | TCP      | 37s   | 60M  | 84x     |
+| mailru/go-clickhouse        | HTTP     | 4m13s | 13M  | 575x    |
 
+## Note about results
+
+Benchmarks were performed on `Ryzen 9 5950x`.
+Example result for ch:
+```console
+$ go run ./ch-bench-faster
+440ms 500000000 rows 4.0 GB 9.1 GB/s
+```

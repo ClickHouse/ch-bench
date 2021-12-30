@@ -25,7 +25,7 @@ func run(ctx context.Context) error {
 		data     proto.ColUInt64
 	)
 	start := time.Now()
-	if err := c.Query(ctx, ch.Query{
+	if err := c.Do(ctx, ch.Query{
 		Body: "SELECT number FROM system.numbers LIMIT 500000000",
 		OnProgress: func(ctx context.Context, p proto.Progress) error {
 			gotBytes += p.Bytes
