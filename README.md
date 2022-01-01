@@ -20,18 +20,20 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                                          | Protocol | Time   | RAM    | Speedup |
-|-----------------------------------------------|----------|--------|--------|---------|
-| **go-faster/ch**                              | **TCP**  | 0.44s  | 10M    | 1x      |
-| clickhouse-client (C++)                       | TCP      | 0.5s   | N/A    | 1.14x   |
-| clickhouse-cpp (C++)                          | TCP      | 0.64s  | 6.7M   | 1.45x   |
-| *clickhouse-rs (Rust, AMD EPYC **Adjusted**)* | *TCP*    | *0.74* | *182M* | *1.68x* |
-| vahid-sohrabloo/chconn (Go)                   | TCP      | 5s     | 10M    | 11x     |
-| clickhouse-jdbc (Java)                        | HTTP     | 10s    | 702M   | 22x     |
-| clickhouse-rs (Rust, AMD Ryzen 9)             | TCP      | 27s    | 182M   | 61x     |
-| clickhouse-go                                 | TCP      | 35s    | 184M   | 79x     |
-| clickhouse-driver (Python)                    | TCP      | 37s    | 60M    | 84x     |
-| mailru/go-clickhouse                          | HTTP     | 4m13s  | 13M    | 575x    |
+| Name                                          | Time   | RAM    | Speedup |
+|-----------------------------------------------|--------|--------|---------|
+| **go-faster/ch**                              | 0.44s  | 10M    | 1x      |
+| clickhouse-client (C++)                       | 0.5s   | N/A    | 1.14x   |
+| clickhouse-cpp (C++)                          | 0.64s  | 6.7M   | 1.45x   |
+| *clickhouse-rs (Rust, AMD EPYC **Adjusted**)* | *0.74* | *182M* | *1.68x* |
+| vahid-sohrabloo/chconn (Go)                   | 5s     | 10M    | 11x     |
+| clickhouse-jdbc (Java)                        | 10s    | 702M   | 22x     |
+| clickhouse-rs (Rust, AMD Ryzen 9)             | 27s    | 182M   | 61x     |
+| clickhouse-go                                 | 35s    | 184M   | 79x     |
+| clickhouse-driver (Python)                    | 37s    | 60M    | 84x     |
+| mailru/go-clickhouse                          | 4m13s  | 13M    | 575x    |
+
+NB: **mailru/go-clickhouse** and **clickhouse-jdbc** are using HTTP protocol.
 
 ## Notes
 
