@@ -3,9 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"os"
 	"time"
 
+	"github.com/dustin/go-humanize"
 	"github.com/go-faster/ch"
 	"github.com/go-faster/ch/proto"
 	"github.com/go-faster/errors"
@@ -19,27 +21,36 @@ func run(ctx context.Context) error {
 	defer func() { _ = c.Close() }()
 
 	createTable := ch.Query{
-		Body: "CREATE TABLE IF NOT EXISTS test_table (id UInt8, text FixedString(4)) ENGINE = Memory",
+		Body: "CREATE TABLE IF NOT EXISTS test_table (id UInt64) ENGINE = Null",
 	}
 	if err := c.Do(ctx, createTable); err != nil {
 		return err
 	}
 	start := time.Now()
-	var (
-		idColumns proto.ColUInt8
-
-		v           = []byte("test")
-		textColumns = proto.ColFixedStr{Size: 4}
+	const (
+		totalBlocks = 500
+		rowsInBlock = 1_000_000
+		totalRows   = totalBlocks * rowsInBlock
+		totalBytes  = totalRows * (64 / 8)
 	)
-	for i := 0; i < 1_000_000; i++ {
+	var (
+		idColumns proto.ColUInt64
+		blocks    int
+	)
+	for i := 0; i < rowsInBlock; i++ {
 		idColumns = append(idColumns, 1)
-		textColumns.Buf = append(textColumns.Buf, v...)
 	}
 	insertQuery := ch.Query{
 		Body: "INSERT INTO test_table VALUES",
+		OnInput: func(ctx context.Context) error {
+			blocks++
+			if blocks >= totalBlocks {
+				return io.EOF
+			}
+			return nil
+		},
 		Input: []proto.InputColumn{
 			{Name: "id", Data: &idColumns},
-			{Name: "text", Data: &textColumns},
 		},
 	}
 
@@ -47,7 +58,10 @@ func run(ctx context.Context) error {
 		return err
 	}
 	duration := time.Since(start)
-	fmt.Println(duration.Round(time.Millisecond))
+	fmt.Println(duration.Round(time.Millisecond), totalRows, "rows",
+		humanize.Bytes(totalBytes),
+		humanize.Bytes(uint64(float64(totalBytes)/duration.Seconds()))+"/s",
+	)
 	return nil
 }
 
