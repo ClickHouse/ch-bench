@@ -3,8 +3,8 @@
 Totally **unscientific** and mostly unrealistic benchmark that
 [go-faster/ch](https://github.com/go-faster/ch) project uses to understand performance.
 
-The main goal is to measure minimal **client overhead** (CPU, RAM) to insert **prepared** data,
-i.e. data blocks serialization and transfer.
+The main goal is to measure minimal **client overhead** (CPU, RAM) to read data,
+i.e. data blocks deserialization and transfer.
 
 Please see [Notes](#Notes) for more details about results.
 
