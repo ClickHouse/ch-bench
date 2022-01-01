@@ -89,7 +89,7 @@ Summary
 
 Also, on AMD EPYC they are even closer:
 ```console
-hyperfine ch-bench-rust ch-bench-faster
+$ hyperfine ch-bench-rust ch-bench-faster
 Benchmark 1: ch-bench-rust
   Time (mean ± σ):      3.949 s ±  1.324 s    [User: 2.133 s, System: 2.188 s]
   Range (min … max):    2.672 s …  6.198 s    10 runs
