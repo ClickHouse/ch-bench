@@ -35,7 +35,7 @@ is significantly higher, so results can be slightly surprising.
 ## Notes
 
 ### C++
-Median results are identical, C++ has much lower dispersion:
+Mean results are identical and C++ has much lower dispersion:
 ```console
 $ hyperfine ch-bench-faster ./ch-bench/ch-bench
 Benchmark 1: ch-bench-faster
