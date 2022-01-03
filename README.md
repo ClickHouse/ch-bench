@@ -20,18 +20,18 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                                          | Time   | RAM    | Speedup |
-|-----------------------------------------------|--------|--------|---------|
-| clickhouse-client (C++)                       | 393ms  | 91M    | ~1x     |
-| **go-faster/ch**                              | 395ms  | 9M     | 1x      |
-| clickhouse-cpp (C++)                          | 531ms  | 6.9M   | 1.34x   |
-| *clickhouse-rs (Rust, AMD EPYC **Adjusted**)* | *0.74* | *182M* | *1.68x* |
-| vahid-sohrabloo/chconn (Go)                   | 5s     | 10M    | 11x     |
-| clickhouse-jdbc (Java)                        | 10s    | 702M   | 22x     |
-| clickhouse-rs (Rust, AMD Ryzen 9)             | 27s    | 182M   | 61x     |
-| clickhouse-go                                 | 35s    | 184M   | 79x     |
-| clickhouse-driver (Python)                    | 37s    | 60M    | 84x     |
-| mailru/go-clickhouse                          | 4m13s  | 13M    | 575x    |
+| Name                                          | Time    | RAM    | Speedup |
+|-----------------------------------------------|---------|--------|---------|
+| clickhouse-client (C++)                       | 393ms   | 91M    | ~1x     |
+| **go-faster/ch**                              | 395ms   | 9M     | 1x      |
+| clickhouse-cpp (C++)                          | 531ms   | 6.9M   | 1.34x   |
+| *clickhouse-rs (Rust, AMD EPYC **Adjusted**)* | *740ms* | *182M* | *1.68x* |
+| vahid-sohrabloo/chconn (Go)                   | 5s      | 10M    | 11x     |
+| clickhouse-jdbc (Java)                        | 10s     | 702M   | 22x     |
+| clickhouse-rs (Rust, AMD Ryzen 9)             | 27s     | 182M   | 61x     |
+| clickhouse-go                                 | 35s     | 184M   | 79x     |
+| clickhouse-driver (Python)                    | 37s     | 60M    | 84x     |
+| mailru/go-clickhouse                          | 4m13s   | 13M    | 575x    |
 
 NB: **mailru/go-clickhouse** and **clickhouse-jdbc** are using HTTP protocol.
 
