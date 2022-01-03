@@ -54,18 +54,31 @@ are much closer.
 
 Benchmarks were performed on `Ryzen 9 5950x`, where Rust behaves surprisingly bad:
 ```console
-$ hyperfine ch-bench-faster ch-bench-rust
-Benchmark 1: ch-bench-faster
-  Time (mean ± σ):     668.6 ms ± 118.5 ms    [User: 132.6 ms, System: 392.2 ms]
-  Range (min … max):   521.9 ms … 828.5 ms    10 runs
+Benchmark 1: go-faster
+  Time (mean ± σ):     644.6 ms ±  53.8 ms    [User: 109.7 ms, System: 352.5 ms]
+  Range (min … max):   586.8 ms … 719.4 ms    5 runs
 
-Benchmark 2: ch-bench-rust
-  Time (mean ± σ):     29.703 s ±  1.614 s    [User: 28.666 s, System: 1.056 s]
-  Range (min … max):   26.907 s … 31.897 s    10 runs
+Benchmark 2: clickhouse-cpp
+  Time (mean ± σ):     579.5 ms ±  23.2 ms    [User: 381.7 ms, System: 185.1 ms]
+  Range (min … max):   541.8 ms … 599.0 ms    5 runs
 
-Summary
-  'ch-bench-faster' ran
-   44.43 ± 8.24 times faster than 'ch-bench-rust'
+Benchmark 3: clickhouse-rs
+  Time (mean ± σ):     27.122 s ±  1.342 s    [User: 26.129 s, System: 1.024 s]
+  Range (min … max):   24.760 s … 28.106 s    5 runs
+
+  Warning: Statistical outliers were detected. Consider re-running this benchmark on a quiet PC without any interferences from other programs. It might help to use the '--warmup' or '--prepare' options.
+
+Benchmark 4: vahid-sohrabloo/chconn
+  Time (mean ± σ):      5.066 s ±  0.115 s    [User: 4.632 s, System: 0.535 s]
+  Range (min … max):    4.901 s …  5.204 s    5 runs
+
+Benchmark 5: clickhouse-go
+  Time (mean ± σ):     38.254 s ±  0.098 s    [User: 74.100 s, System: 1.179 s]
+  Range (min … max):   38.120 s … 38.366 s    5 runs
+
+Benchmark 6: clickhouse-client
+  Time (mean ± σ):     507.6 ms ±  97.2 ms    [User: 135.3 ms, System: 197.7 ms]
+  Range (min … max):   408.5 ms … 615.7 ms    5 runs
 ```
 
 However, on Intel results are much closer:
