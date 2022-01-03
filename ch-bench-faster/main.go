@@ -26,7 +26,7 @@ func run(ctx context.Context) error {
 	)
 	start := time.Now()
 	if err := c.Do(ctx, ch.Query{
-		Body: "SELECT number FROM system.numbers LIMIT 500000000",
+		Body: "SELECT number FROM system.numbers_mt LIMIT 500000000",
 		OnProgress: func(ctx context.Context, p proto.Progress) error {
 			gotBytes += p.Bytes
 			return nil

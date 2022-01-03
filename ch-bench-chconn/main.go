@@ -16,7 +16,7 @@ func run(ctx context.Context) error {
 		return errors.Wrap(err, "connect")
 	}
 
-	s, err := c.Select(ctx, "SELECT number FROM system.numbers LIMIT 500000000")
+	s, err := c.Select(ctx, "SELECT number FROM system.numbers_mt LIMIT 500000000")
 	if err != nil {
 		return errors.Wrap(err, "select")
 	}

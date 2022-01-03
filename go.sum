@@ -15,8 +15,6 @@ github.com/dmarkham/enumer v1.5.3/go.mod h1:bHo+0/Wq157UdDkl/M8poXeb6/0hnjb8HJcE
 github.com/dustin/go-humanize v1.0.0 h1:VSnTsYCnlFHaM2/igO1h6X3HA71jcobQuxemgkq4zYo=
 github.com/dustin/go-humanize v1.0.0/go.mod h1:HtrtbFcZ19U5GC7JDqmcUSB87Iq5E25KnS6fMYU6eOk=
 github.com/dvyukov/go-fuzz v0.0.0-20210103155950-6a8e9d1f2415/go.mod h1:11Gm+ccJnvAhCNLlf5+cS9KjtbaD5I5zaZpFMsTHWTw=
-github.com/go-faster/ch v0.11.0 h1:XB8WBqNTZR9aHLtPUMyi/+xK0HQfeaDDdpj/sr+WLrE=
-github.com/go-faster/ch v0.11.0/go.mod h1:0K0yzp+Pujo+gKawvNav5lbqUwVyJss4f1B9hdy1jvg=
 github.com/go-faster/ch v0.12.0 h1:QQT/aANbSM6hClVTXT05ZpTBCZAJOUkjnIRebx50wBk=
 github.com/go-faster/ch v0.12.0/go.mod h1:0K0yzp+Pujo+gKawvNav5lbqUwVyJss4f1B9hdy1jvg=
 github.com/go-faster/city v0.6.0 h1:K8ESni1TIdK9Fbn78Dc0yP/9zSpSSEgB4FLUnmLIOKA=

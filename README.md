@@ -9,7 +9,7 @@ i.e. data blocks deserialization and transfer.
 Please see [Notes](#Notes) for more details about results.
 
 ```sql
-SELECT number FROM system.numbers LIMIT 500000000
+SELECT number FROM system.numbers_mt LIMIT 500000000
 ```
 ```
 500000000 rows in set. Elapsed: 0.503 sec.
@@ -22,9 +22,9 @@ is significantly higher, so results can be slightly surprising.
 
 | Name                                          | Time   | RAM    | Speedup |
 |-----------------------------------------------|--------|--------|---------|
-| **go-faster/ch**                              | 0.44s  | 10M    | 1x      |
-| clickhouse-client (C++)                       | 0.5s   | N/A    | 1.14x   |
-| clickhouse-cpp (C++)                          | 0.64s  | 6.7M   | 1.45x   |
+| clickhouse-client (C++)                       | 393ms  | 91M    | ~1x     |
+| **go-faster/ch**                              | 395ms  | 9M     | 1x      |
+| clickhouse-cpp (C++)                          | 531ms  | 6.9M   | 1.34x   |
 | *clickhouse-rs (Rust, AMD EPYC **Adjusted**)* | *0.74* | *182M* | *1.68x* |
 | vahid-sohrabloo/chconn (Go)                   | 5s     | 10M    | 11x     |
 | clickhouse-jdbc (Java)                        | 10s    | 702M   | 22x     |
@@ -39,22 +39,15 @@ NB: **mailru/go-clickhouse** and **clickhouse-jdbc** are using HTTP protocol.
 
 ### C++
 Mean results are identical and C++ has much lower dispersion:
-```console
-$ hyperfine ch-bench-faster ./ch-bench/ch-bench
-Benchmark 1: ch-bench-faster
-  Time (mean ± σ):     611.7 ms ± 133.4 ms    [User: 139.4 ms, System: 337.8 ms]
-  Range (min … max):   422.2 ms … 853.1 ms    10 runs
 
-Benchmark 2: ./ch-bench/ch-bench
-  Time (mean ± σ):     676.4 ms ±  50.8 ms    [User: 445.8 ms, System: 219.6 ms]
-  Range (min … max):   614.6 ms … 769.4 ms    10 runs
+| Command             |     Mean [ms] | Min [ms] | Max [ms] |    Relative |
+|:--------------------|--------------:|---------:|---------:|------------:|
+| `clickhouse-cpp`    |  575.2 ± 36.5 |    531.3 |    686.1 |        1.00 |
+| `clickhouse-client` | 611.5 ± 161.1 |    393.2 |   1102.6 | 1.06 ± 0.29 |
+| `go-faster`         |  626.4 ± 90.9 |    395.5 |    805.1 | 1.09 ± 0.17 |
 
-Summary
-  'ch-bench-faster' ran
-    1.11 ± 0.26 times faster than './ch-bench/ch-bench'
-```
 
-We are selecting best result, so picking `422.2 ms` vs `614.5ms`, while mean results
+We are selecting **best** result, so picking `393 ms` vs `531 ms`, while mean results
 are much closer.
 
 ### Rust

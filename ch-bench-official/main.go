@@ -17,7 +17,7 @@ func run(ctx context.Context) error {
 	}
 
 	start := time.Now()
-	rows, err := c.QueryContext(ctx, "SELECT number FROM system.numbers LIMIT 500000000")
+	rows, err := c.QueryContext(ctx, "SELECT number FROM system.numbers_mt LIMIT 500000000")
 	if err != nil {
 		return err
 	}

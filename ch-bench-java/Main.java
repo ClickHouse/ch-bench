@@ -56,7 +56,7 @@ public class Main {
         String host = System.getProperty("dbHost", "localhost");
         int port = Integer.parseInt(System.getProperty("dbPort", "8123"));
         boolean compress = Boolean.parseBoolean(System.getProperty("compress", "true"));
-        String sql = "SELECT number FROM system.numbers LIMIT 500000000";
+        String sql = "SELECT number FROM system.numbers_mt LIMIT 500000000";
 
         int count = args != null && args.length > 0 && "client".equals(args[0])
                 ? useJavaClient(host, port, compress, sql)

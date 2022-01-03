@@ -42,7 +42,7 @@ func run(ctx context.Context) error {
 
 			var data proto.ColUInt64
 			if err := c.Query(ctx, ch.Query{
-				Body: "SELECT number FROM system.numbers LIMIT 500000000",
+				Body: "SELECT number FROM system.numbers_mt LIMIT 500000000",
 				OnProgress: func(ctx context.Context, p proto.Progress) error {
 					atomic.AddUint64(&totalBytes, p.Bytes)
 					return nil

@@ -9,7 +9,7 @@ async fn execute(database_url: String) -> Result<(), Box<dyn Error>> {
     let mut client = pool.get_handle().await.unwrap();
     let mut total: u64 = 0;
 
-    client.query("SELECT number FROM system.numbers LIMIT 500000000")
+    client.query("SELECT number FROM system.numbers_mt LIMIT 500000000")
         .stream_blocks()
         .try_for_each(|block| {
             total += block.row_count() as u64;

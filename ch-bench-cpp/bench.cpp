@@ -7,7 +7,7 @@ int main() {
     Client client(ClientOptions().SetHost("localhost"));
 
     uint64_t count = 0;
-    client.Select("SELECT number FROM system.numbers LIMIT 500000000", [&count](const Block &block)
+    client.Select("SELECT number FROM system.numbers_mt LIMIT 500000000", [&count](const Block &block)
         {
             count += block.GetRowCount();
         }
