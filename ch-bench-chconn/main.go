@@ -8,6 +8,7 @@ import (
 
 	"github.com/go-faster/errors"
 	"github.com/vahid-sohrabloo/chconn"
+	"github.com/vahid-sohrabloo/chconn/column"
 )
 
 func run(ctx context.Context) error {
@@ -24,14 +25,13 @@ func run(ctx context.Context) error {
 	start := time.Now()
 
 	var data []uint64
+	colRead := column.NewUint64(false)
 	for s.Next() {
-		if _, err := s.NextColumn(); err != nil {
+		if err := s.NextColumn(colRead); err != nil {
 			return errors.Wrap(err, "column")
 		}
 		data = data[:0]
-		if err := s.Uint64All(&data); err != nil {
-			return errors.Wrap(err, "fetch")
-		}
+		colRead.ReadAll(&data)
 	}
 	if err := s.Err(); err != nil {
 		return errors.Wrap(err, "next")
