@@ -20,10 +20,9 @@ func run(ctx context.Context) error {
 	}
 	defer func() { _ = c.Close() }()
 
-	createTable := ch.Query{
+	if err := c.Do(ctx, ch.Query{
 		Body: "CREATE TABLE IF NOT EXISTS test_table (id UInt64) ENGINE = Null",
-	}
-	if err := c.Do(ctx, createTable); err != nil {
+	}); err != nil {
 		return err
 	}
 	start := time.Now()
@@ -40,7 +39,7 @@ func run(ctx context.Context) error {
 	for i := 0; i < rowsInBlock; i++ {
 		idColumns = append(idColumns, 1)
 	}
-	insertQuery := ch.Query{
+	if err := c.Do(ctx, ch.Query{
 		Body: "INSERT INTO test_table VALUES",
 		OnInput: func(ctx context.Context) error {
 			blocks++
@@ -50,11 +49,9 @@ func run(ctx context.Context) error {
 			return nil
 		},
 		Input: []proto.InputColumn{
-			{Name: "id", Data: &idColumns},
+			{Name: "id", Data: idColumns},
 		},
-	}
-
-	if err := c.Do(ctx, insertQuery); err != nil {
+	}); err != nil {
 		return err
 	}
 	duration := time.Since(start)

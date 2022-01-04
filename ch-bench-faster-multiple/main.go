@@ -41,7 +41,7 @@ func run(ctx context.Context) error {
 			}()
 
 			var data proto.ColUInt64
-			if err := c.Query(ctx, ch.Query{
+			if err := c.Do(ctx, ch.Query{
 				Body: "SELECT number FROM system.numbers_mt LIMIT 500000000",
 				OnProgress: func(ctx context.Context, p proto.Progress) error {
 					atomic.AddUint64(&totalBytes, p.Bytes)
@@ -70,6 +70,7 @@ func run(ctx context.Context) error {
 	fmt.Println(duration.Round(time.Millisecond), rows, "rows",
 		humanize.Bytes(totalBytes),
 		humanize.Bytes(uint64(float64(totalBytes)/duration.Seconds()))+"/s",
+		arg.Workers, "jobs",
 	)
 
 	return nil
