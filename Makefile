@@ -18,7 +18,7 @@ ch-bench-mailru:
 	go build -o bin ./ch-bench-mailru
 
 ch-bench-rust:
-	cd ch-bench-rust && cargo build --release
+	cd ch-bench-rust && RUSTFLAGS="-C target-cpu=native" cargo build --profile release-adjusted
 	rm ./bin/ch-bench-rust
 	cp ./ch-bench-rust/target/release/ch-bench-rust ./bin/ch-bench-rust
 
