@@ -29,7 +29,7 @@ is significantly higher, so results can be slightly surprising.
 | [vahid-sohrabloo/chconn][vahid] (Go)       | 750ms   | 12M    | 2.16x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s     | 702M   | 28x     |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s     | 7.2M   | 28x     |
-| [clickhouse-rs][rs] (Rust)                 | 27s[^1] | 192M   | 77x     |
+| [clickhouse-rs][rs] (Rust)                 | 27s     | 192M   | 77x     |
 | [clickhouse-driver][py] (Python)           | 37s     | 60M    | 106x    |
 | [clickhouse-go][go] (Go)                   | 38s     | 184M   | 109x    |
 | [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s   | 13M    | 729x    |
