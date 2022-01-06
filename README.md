@@ -1,7 +1,7 @@
 # Benchmarks
 
 Totally **unscientific** and mostly unrealistic benchmark that
-[go-faster/ch](https://github.com/go-faster/ch) project uses to understand performance.
+[go-faster/ch][faster] project uses to understand performance.
 
 The main goal is to measure minimal **client overhead** (CPU, RAM) to read data,
 i.e. data blocks deserialization and transfer.
@@ -20,20 +20,33 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                                          | Time    | RAM    | Ratio   |
-|-----------------------------------------------|---------|--------|---------|
-| clickhouse-client (C++)                       | 381ms   | 91M    | ~1x     |
-| **go-faster/ch**                              | 347ms   | 9M     | ~1x     |
-| *clickhouse-rs (Rust, AMD EPYC **Adjusted**)* | *490ms* | *192M* | *1.41x* |
-| clickhouse-cpp (C++)                          | 531ms   | 6.9M   | 1.53x   |
-| vahid-sohrabloo/chconn (Go)                   | 750ms   | 12M    | 2.16x   |
-| clickhouse-jdbc (Java)                        | 10s     | 702M   | 28x     |
-| clickhouse-rs (Rust, AMD Ryzen 9)             | 27s     | 192M   | 77x     |
-| clickhouse-driver (Python)                    | 37s     | 60M    | 106x    |
-| clickhouse-go                                 | 38s     | 184M   | 109x    |
-| mailru/go-clickhouse                          | 4m13s   | 13M    | 729x    |
+| Name                                             | Time    | RAM    | Ratio   |
+|--------------------------------------------------|---------|--------|---------|
+| **[go-faster/ch][faster]** (Go)                  | 347ms   | 9M     | ~1x     |
+| [clickhouse-client][client] (C++)                | 381ms   | 91M    | ~1x     |
+| *[clickhouse-rs][rs] (Rust, **!adjusted![^1]**)* | *490ms* | *192M* | *1.41x* |
+| [clickhouse-cpp][cpp] (C++)                      | 531ms   | 6.9M   | 1.53x   |
+| [vahid-sohrabloo/chconn][vahid] (Go)             | 750ms   | 12M    | 2.16x   |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)             | 10s     | 702M   | 28x     |
+| [loyd/clickhouse.rs][rs-http] (Rust, HTTP)       | 10s     | 7.2M   | 28x     |
+| [clickhouse-rs][rs] (Rust)                       | 27s     | 192M   | 77x     |
+| [clickhouse-driver][py] (Python)                 | 37s     | 60M    | 106x    |
+| [clickhouse-go][go] (Go)                         | 38s     | 184M   | 109x    |
+| [mailru/go-clickhouse][mail] (Go, HTTP)          | 4m13s   | 13M    | 729x    |
 
-NB: **mailru/go-clickhouse** and **clickhouse-jdbc** are using HTTP protocol.
+[client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
+[faster]:  https://github.com/go-faster/ch "go-faster/ch"
+[rs]:      https://github.com/suharev7/clickhouse-rs "suharev7/clickhouse-rs"
+[cpp]:     https://github.com/ClickHouse/clickhouse-cpp "C++ client library for ClickHouse (Official)"
+[vahid]:   https://github.com/vahid-sohrabloo/chconn "Low-level ClickHouse database driver for Golang"
+[jdbc]:    https://github.com/ClickHouse/clickhouse-jdbc "DBC driver for ClickHouse (Official)"
+[rs-http]: https://github.com/loyd/clickhouse.rs "A typed client for ClickHouse (HTTP)"
+[py]:      https://github.com/mymarilyn/clickhouse-driver
+[go]:      https://github.com/ClickHouse/clickhouse-go "Golang driver for ClickHouse (Official)"
+[mail]:    https://github.com/mailru/go-clickhouse "Golang SQL database driver (HTTP, TSV format)"
+
+[^1]: Not real measurement, extrapolated from AMD EPYC results to Ryzen 9.
+
 See [RESULTS.md](./RESULTS.md) and [RESULTS.slow.md](./RESULTS.slow.md).
 
 Keeping `go-faster/ch` and `clickhouse-client` to `~1x` because they are always equal and there is no point to calculate
