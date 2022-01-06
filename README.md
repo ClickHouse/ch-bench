@@ -20,19 +20,19 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                                             | Time    | RAM    | Ratio   |
-|--------------------------------------------------|---------|--------|---------|
-| **[go-faster/ch][faster]** (Go)                  | 347ms   | 9M     | ~1x     |
-| [clickhouse-client][client] (C++)                | 381ms   | 91M    | ~1x     |
-| *[clickhouse-rs][rs] (Rust, **!adjusted![^1]**)* | *490ms* | *192M* | *1.41x* |
-| [clickhouse-cpp][cpp] (C++)                      | 531ms   | 6.9M   | 1.53x   |
-| [vahid-sohrabloo/chconn][vahid] (Go)             | 750ms   | 12M    | 2.16x   |
-| [clickhouse-jdbc][jdbc] (Java, HTTP)             | 10s     | 702M   | 28x     |
-| [loyd/clickhouse.rs][rs-http] (Rust, HTTP)       | 10s     | 7.2M   | 28x     |
-| [clickhouse-rs][rs] (Rust)                       | 27s     | 192M   | 77x     |
-| [clickhouse-driver][py] (Python)                 | 37s     | 60M    | 106x    |
-| [clickhouse-go][go] (Go)                         | 38s     | 184M   | 109x    |
-| [mailru/go-clickhouse][mail] (Go, HTTP)          | 4m13s   | 13M    | 729x    |
+| Name                                       | Time    | RAM    | Ratio   |
+|--------------------------------------------|---------|--------|---------|
+| **[go-faster/ch][faster]** (Go)            | 347ms   | 9M     | ~1x     |
+| [clickhouse-client][client] (C++)          | 381ms   | 91M    | ~1x     |
+| *[clickhouse-rs][rs] (Rust, inferred[^1])* | *490ms* | *192M* | *1.41x* |
+| [clickhouse-cpp][cpp] (C++)                | 531ms   | 6.9M   | 1.53x   |
+| [vahid-sohrabloo/chconn][vahid] (Go)       | 750ms   | 12M    | 2.16x   |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s     | 702M   | 28x     |
+| [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s     | 7.2M   | 28x     |
+| [clickhouse-rs][rs] (Rust)                 | 27s[^1] | 192M   | 77x     |
+| [clickhouse-driver][py] (Python)           | 37s     | 60M    | 106x    |
+| [clickhouse-go][go] (Go)                   | 38s     | 184M   | 109x    |
+| [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s   | 13M    | 729x    |
 
 [client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
 [faster]:  https://github.com/go-faster/ch "go-faster/ch"
@@ -45,7 +45,7 @@ is significantly higher, so results can be slightly surprising.
 [go]:      https://github.com/ClickHouse/clickhouse-go "Golang driver for ClickHouse (Official)"
 [mail]:    https://github.com/mailru/go-clickhouse "Golang SQL database driver (HTTP, TSV format)"
 
-[^1]: Not real measurement, extrapolated from AMD EPYC results to Ryzen 9.
+[^1]: Not real measurement, extrapolated from AMD EPYC results to Ryzen 9. See [notes on Rust](#rust).
 
 See [RESULTS.md](./RESULTS.md) and [RESULTS.slow.md](./RESULTS.slow.md).
 
