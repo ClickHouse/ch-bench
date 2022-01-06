@@ -131,3 +131,19 @@ Summary
 
 Please create an issue to help me improve results on `Ryzen 9 5950x` if it is possible,
 Rust client is pretty good and should perform better.
+
+# Maximum possible speed
+
+I've measured my localhost performance using `iperf3`, getting 10 GiB/s,
+this correlates with top results.
+
+For example, one of [go-faster/ch][faster] results is `390ms 500000000 rows 4.0 GB 10 GB/s`.
+
+I've also implemented [mock server in Go](https://github.com/go-faster/ch/blob/main/internal/cmd/ch-bench-server/main.go) that simulates ClickHouse server to reduce
+overhead, because currently the main bottleneck in this test is server itself (and probably localhost).
+The [go-faster/ch][faster]  was able
+to achieve `257ms 500000000 rows 4.0 GB 16 GB/s` which should be maximum
+possible burst result, but I'm not 100% sure.
+
+On [go-faster/ch][faster] micro-benchmarks I'm getting up to 27 GB/s, not accounting of any
+network overhead (i.e. inmemory).
