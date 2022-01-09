@@ -8,7 +8,7 @@ require (
 	github.com/go-faster/ch v0.13.0
 	github.com/go-faster/errors v0.5.0
 	github.com/mailru/go-clickhouse v1.7.0
-	github.com/vahid-sohrabloo/chconn v1.0.0
+	github.com/vahid-sohrabloo/chconn v1.1.1
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )
 
@@ -27,9 +27,9 @@ require (
 	go.uber.org/zap v1.19.1 // indirect
 	go4.org/intern v0.0.0-20211027215823-ae77deb06f29 // indirect
 	go4.org/unsafe/assume-no-moving-gc v0.0.0-20211027215541-db492cf91b37 // indirect
-	golang.org/x/mod v0.4.2 // indirect
-	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
-	golang.org/x/tools v0.1.5 // indirect
+	golang.org/x/mod v0.5.1 // indirect
+	golang.org/x/sys v0.0.0-20211019181941-9d821ace8654 // indirect
+	golang.org/x/tools v0.1.8 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	inet.af/netaddr v0.0.0-20211027220019-c74959edd3b6 // indirect
 )
