@@ -12,7 +12,7 @@ import (
 )
 
 func run(ctx context.Context) error {
-	c, err := chconn.Connect(ctx, "clickhouse://127.0.0.1:9000")
+	c, err := chconn.Connect(ctx, "")
 	if err != nil {
 		return errors.Wrap(err, "connect")
 	}
@@ -31,7 +31,7 @@ func run(ctx context.Context) error {
 			return errors.Wrap(err, "column")
 		}
 		data = data[:0]
-		colRead.ReadAll(&data)
+		colRead.ReadAllUnsafe(&data)
 	}
 	if err := s.Err(); err != nil {
 		return errors.Wrap(err, "next")
