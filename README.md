@@ -24,9 +24,9 @@ is significantly higher, so results can be slightly surprising.
 |--------------------------------------------|---------|--------|---------|
 | **[go-faster/ch][faster]** (Go)            | 347ms   | 9M     | ~1x     |
 | [clickhouse-client][client] (C++)          | 381ms   | 91M    | ~1x     |
+| [vahid-sohrabloo/chconn][vahid] (Go)       | 394ms   | 9M     | ~1x     |
 | *[clickhouse-rs][rs] (Rust, inferred[^1])* | *490ms* | *192M* | *1.41x* |
 | [clickhouse-cpp][cpp] (C++)                | 531ms   | 6.9M   | 1.53x   |
-| [vahid-sohrabloo/chconn][vahid] (Go)       | 750ms   | 12M    | 2.16x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s     | 702M   | 28x     |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s     | 7.2M   | 28x     |
 | [clickhouse-rs][rs] (Rust)                 | 27s     | 192M   | 77x     |
