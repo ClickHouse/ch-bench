@@ -1,0 +1,17 @@
+[package]
+name = "ch-bench-rust-driver"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+futures = "*"
+clickhouse-driver = { git = "https://github.com/datafuse-extras/clickhouse_driver"}
+futures-util = "*"
+tokio = { version = "1.15.0", features = ["full"] }
+
+[profile.release-adjusted]
+inherits = "release"
+lto = true
+codegen-units = 1
