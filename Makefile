@@ -25,7 +25,7 @@ ch-bench-rust:
 	cp ./ch-bench-rust/target/release/ch-bench-rust ./bin/ch-bench-rust
 
 ch-bench-rust-driver:
-	cd ch-bench-rust-driver && cargo build --release
+	cd ch-bench-rust-driver && RUSTFLAGS="-C target-cpu=native" cargo build --profile release-adjusted
 	rm -f ./bin/ch-bench-rust-driver
 	cp ./ch-bench-rust-driver/target/release/ch-bench-rust-driver ./bin/ch-bench-rust-driver
 

@@ -27,7 +27,7 @@ is significantly higher, so results can be slightly surprising.
 | [vahid-sohrabloo/chconn][vahid] (Go)       | 394ms   | 9M     | ~1x     |
 | *[clickhouse-rs][rs] (Rust, inferred[^1])* | *490ms* | *192M* | *1.41x* |
 | [clickhouse-cpp][cpp] (C++)                | 531ms   | 6.9M   | 1.53x   |
-| [clickhouse_driver][cpp] (Rust)            | 585ms   | 9M     | 1.68x   |
+| [clickhouse_driver][rs-driver] (Rust)      | 585ms   | 9M     | 1.68x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s     | 702M   | 28x     |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s     | 7.2M   | 28x     |
 | [clickhouse-rs][rs] (Rust)                 | 27s     | 192M   | 77x     |
@@ -38,6 +38,7 @@ is significantly higher, so results can be slightly surprising.
 [client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
 [faster]:  https://github.com/go-faster/ch "go-faster/ch"
 [rs]:      https://github.com/suharev7/clickhouse-rs "suharev7/clickhouse-rs"
+[rs-driver]: https://github.com/datafuse-extras/clickhouse_driver "datafuse-extras/clickhouse_driver"
 [cpp]:     https://github.com/ClickHouse/clickhouse-cpp "C++ client library for ClickHouse (Official)"
 [vahid]:   https://github.com/vahid-sohrabloo/chconn "Low-level ClickHouse database driver for Golang"
 [jdbc]:    https://github.com/ClickHouse/clickhouse-jdbc "DBC driver for ClickHouse (Official)"
