@@ -2,31 +2,33 @@ package main
 
 import (
 	"context"
-	"database/sql"
 	"fmt"
 	"os"
 	"time"
 
-	_ "github.com/ClickHouse/clickhouse-go"
+	"github.com/ClickHouse/clickhouse-go/v2"
 )
 
 func run(ctx context.Context) error {
-	c, err := sql.Open("clickhouse", "tcp://127.0.0.1:9000")
+	c, err := clickhouse.Open(&clickhouse.Options{
+		Addr: []string{"127.0.0.1:9000"},
+		Auth: clickhouse.Auth{
+			Database: "default",
+			Username: "default",
+			Password: "",
+		},
+	})
 	if err != nil {
 		return err
 	}
 
 	start := time.Now()
-	rows, err := c.QueryContext(ctx, "SELECT number FROM system.numbers_mt LIMIT 500000000")
+	rows, err := c.Query(ctx, "SELECT number FROM system.numbers_mt LIMIT 500000000")
 	if err != nil {
 		return err
 	}
 	var count int
 	for rows.Next() {
-		var v uint64
-		if err := rows.Scan(&v); err != nil {
-			return err
-		}
 		count++
 	}
 

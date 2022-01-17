@@ -13,6 +13,7 @@ require (
 )
 
 require (
+	github.com/ClickHouse/clickhouse-go/v2 v2.0.0-alpha.1 // indirect
 	github.com/cloudflare/golz4 v0.0.0-20150217214814-ef862a3cdc58 // indirect
 	github.com/dmarkham/enumer v1.5.3 // indirect
 	github.com/go-faster/city v0.6.0 // indirect
@@ -20,6 +21,7 @@ require (
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/pascaldekloe/name v1.0.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.12 // indirect
+	github.com/shopspring/decimal v1.3.1 // indirect
 	go.opentelemetry.io/otel v1.3.0 // indirect
 	go.opentelemetry.io/otel/trace v1.3.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect

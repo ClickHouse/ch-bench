@@ -3,18 +3,27 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 	"time"
 
-	"github.com/ClickHouse/clickhouse-go"
+	"github.com/ClickHouse/clickhouse-go/v2"
 	"github.com/dustin/go-humanize"
 )
 
 func run(ctx context.Context) error {
-	connect, err := clickhouse.OpenDirect("tcp://127.0.0.1:9000?username=&debug=true")
+	c, err := clickhouse.Open(&clickhouse.Options{
+		Addr: []string{"127.0.0.1:9000"},
+		Auth: clickhouse.Auth{
+			Database: "default",
+			Username: "default",
+			Password: "",
+		},
+	})
 	if err != nil {
-		log.Fatal(err)
+		return err
+	}
+	if err := c.Exec(ctx, "CREATE TABLE IF NOT EXISTS test_table (id UInt64) ENGINE = Null"); err != nil {
+		return err
 	}
 	start := time.Now()
 	const (
@@ -23,28 +32,27 @@ func run(ctx context.Context) error {
 		totalRows   = totalBlocks * rowsInBlock
 		totalBytes  = totalRows * (64 / 8)
 	)
+	var (
+		idColumns []uint64
+	)
+	for i := 0; i < rowsInBlock; i++ {
+		idColumns = append(idColumns, 1)
+	}
 	{
-		connect.Begin()
-		connect.Prepare("INSERT INTO test_table VALUES ()")
-
 		for i := 0; i < totalBlocks; i++ {
-			block, err := connect.Block()
+			batch, err := c.PrepareBatch(ctx, "INSERT INTO test_table VALUES")
 			if err != nil {
-				log.Fatal(err)
+				return err
 			}
-			block.Reserve()
-			block.NumRows += rowsInBlock
-			for i := 0; i < rowsInBlock; i++ {
-				block.WriteUInt64(0, 1)
+			if err := batch.Column(0).Append(idColumns); err != nil {
+				return err
 			}
-			if err := connect.WriteBlock(block); err != nil {
-				log.Fatal(err)
+			if err := batch.Send(); err != nil {
+				return err
 			}
-		}
-		if err := connect.Commit(); err != nil {
-			log.Fatal(err)
 		}
 	}
+
 	duration := time.Since(start)
 	fmt.Println(duration.Round(time.Millisecond), totalRows, "rows",
 		humanize.Bytes(totalBytes),
