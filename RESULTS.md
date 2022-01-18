@@ -1,9 +1,8 @@
-| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
-|:---|---:|---:|---:|---:|
-| `go-faster` | 593.6 ± 93.3 | 348.4 | 786.0 | 1.11 ± 0.35 |
-| `clickhouse-cpp` | 568.9 ± 39.7 | 510.0 | 737.6 | 1.06 ± 0.30 |
-| `vahid-sohrabloo/chconn` | 623.2 ± 70.1 | 480.1 | 750.2 | 1.17 ± 0.35 |
-| `clickhouse_driver_rust` | 790.2 ± 90.1 | 602.7 | 915.6 | 1.48 ± 0.44 |
-| `clickhouse-client` | 534.4 ± 146.6 | 353.2 | 1071.2 | 1.00 |
-
-*Outdated, updating with n=100 soon*
+| Command                  |      Mean [ms] | Min [ms] | Max [ms] |    Relative |
+|:-------------------------|---------------:|---------:|---------:|------------:|
+| `go-faster`              |   598.8 ± 92.2 |    356.9 |    792.8 | 1.07 ± 0.33 |
+| `clickhouse-cpp`         |   574.4 ± 35.9 |    523.3 |    707.4 | 1.02 ± 0.28 |
+| `vahid-sohrabloo/chconn` |   593.0 ± 80.2 |    416.5 |    793.6 | 1.06 ± 0.31 |
+| `clickhouse_driver_rust` |   789.2 ± 93.0 |    614.9 |    916.5 | 1.40 ± 0.41 |
+| `clickhouse-go`          | 3459.4 ± 156.3 |   3094.1 |   3870.2 | 6.16 ± 1.66 |
+| `clickhouse-client`      |  561.9 ± 149.5 |    387.8 |   1114.2 |        1.00 |
