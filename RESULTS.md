@@ -5,3 +5,5 @@
 | `vahid-sohrabloo/chconn` | 623.2 ± 70.1 | 480.1 | 750.2 | 1.17 ± 0.35 |
 | `clickhouse_driver_rust` | 790.2 ± 90.1 | 602.7 | 915.6 | 1.48 ± 0.44 |
 | `clickhouse-client` | 534.4 ± 146.6 | 353.2 | 1071.2 | 1.00 |
+
+*Outdated, updating with n=100 soon*

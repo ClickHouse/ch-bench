@@ -42,6 +42,7 @@ run:
 	  ./bin/ch-bench-cpp -n clickhouse-cpp \
 	  ./bin/ch-bench-chconn -n vahid-sohrabloo/chconn \
 	  ./bin/ch-bench-rust-driver -n clickhouse_driver_rust \
+	  ./bin/ch-bench-official -n clickhouse-go  \
 	  'clickhouse-client -q "SELECT number FROM system.numbers_mt LIMIT 500000000" --format Null --time' -n clickhouse-client \
 	  --export-markdown RESULTS.md
 run-slow:
@@ -51,6 +52,5 @@ run-slow:
 	  ./bin/ch-bench-rust -n rs \
 	  ./bin/ch-bench-rust-http -n rs-http \
 	  ./bin/ch-bench-chconn -n vahid-sohrabloo/chconn \
-	  ./bin/ch-bench-official -n clickhouse-go  \
 	  'clickhouse-client -q "SELECT number FROM system.numbers_mt LIMIT 500000000" --format Null --time' -n clickhouse-client \
 	  --export-markdown RESULTS.slow.md
