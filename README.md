@@ -36,10 +36,10 @@ is significantly higher, so results can be slightly surprising.
 [client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
 [faster]:  https://github.com/go-faster/ch "go-faster/ch"
 [rs]:      https://github.com/datafuse-extras/clickhouse_driver "datafuse-extras/clickhouse_driver"
+[rs-http]: https://github.com/loyd/clickhouse.rs "A typed client for ClickHouse (HTTP)"
 [cpp]:     https://github.com/ClickHouse/clickhouse-cpp "C++ client library for ClickHouse (Official)"
 [vahid]:   https://github.com/vahid-sohrabloo/chconn "Low-level ClickHouse database driver for Golang"
 [jdbc]:    https://github.com/ClickHouse/clickhouse-jdbc "DBC driver for ClickHouse (Official)"
-[rs-http]: https://github.com/loyd/clickhouse.rs "A typed client for ClickHouse (HTTP)"
 [py]:      https://github.com/mymarilyn/clickhouse-driver
 [go]:      https://github.com/ClickHouse/clickhouse-go "Golang driver for ClickHouse (Official)"
 [mail]:    https://github.com/mailru/go-clickhouse "Golang SQL database driver (HTTP, TSV format)"
