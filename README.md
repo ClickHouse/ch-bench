@@ -53,18 +53,15 @@ Keeping `go-faster/ch`, `clickhouse-client` and `vahid-sohrabloo/chconn` to `~1x
 ## Notes
 
 ### C++
-Mean results are identical and C++ has much lower dispersion:
 
-| Command             |     Mean [ms] | Min [ms] | Max [ms] |    Relative |
-|:--------------------|--------------:|---------:|---------:|------------:|
-| `clickhouse-cpp`    |  575.2 ± 36.5 |    531.3 |    686.1 |        1.00 |
-| `clickhouse-client` | 611.5 ± 161.1 |    393.2 |   1102.6 | 1.06 ± 0.29 |
-| `go-faster`         |  626.4 ± 90.9 |    395.5 |    805.1 | 1.09 ± 0.17 |
+| Command                  |      Mean [ms] | Min [ms] | Max [ms] |    Relative |
+|:-------------------------|---------------:|---------:|---------:|------------:|
+| `go-faster`              |   598.8 ± 92.2 |    356.9 |    792.8 | 1.07 ± 0.33 |
+| `clickhouse-client`      |  561.9 ± 149.5 |    387.8 |   1114.2 |        1.00 |
+| `clickhouse-cpp`         |   574.4 ± 35.9 |    523.3 |    707.4 | 1.02 ± 0.28 |
 
 
-We are selecting **best** result, so picking `393 ms` vs `531 ms`, while mean results
-are much closer.
-
+We are selecting **best** results, however C++ client has lower dispersion.
 
 # Maximum possible speed
 
