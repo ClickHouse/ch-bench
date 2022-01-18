@@ -20,18 +20,18 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                                       | Time  | RAM  | Ratio |
-|--------------------------------------------|-------|------|-------|
-| **[go-faster/ch][faster]** (Go)            | 356ms | 9M   | ~1x   |
-| [clickhouse-client][client] (C++)          | 387ms | 91M  | ~1x   |
-| [vahid-sohrabloo/chconn][vahid] (Go)       | 416ms | 9M   | ~1x   |
-| [clickhouse-cpp][cpp] (C++)                | 523ms | 6.9M | 1.47x |
-| [clickhouse_driver][rs] (Rust)             | 614ms | 9M   | 1.72x |
-| [clickhouse-go][go] (Go)                   | 3.1s  | 85M  | 8.7x  |
-| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s   | 702M | 28x   |
-| [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s   | 7.2M | 28x   |
-| [clickhouse-driver][py] (Python)           | 37s   | 60M  | 106x  |
-| [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s | 13M  | 729x  |
+| Name                                       | Time      | RAM      | Ratio |
+|--------------------------------------------|-----------|----------|-------|
+| **[go-faster/ch][faster]** (Go)            | **356ms** | 9M       | ~1x   |
+| [clickhouse-client][client] (C++)          | 387ms     | 91M      | ~1x   |
+| [vahid-sohrabloo/chconn][vahid] (Go)       | 416ms     | 9M       | ~1x   |
+| [clickhouse-cpp][cpp] (C++)                | 523ms     | **6.9M** | 1.47x |
+| [clickhouse_driver][rs] (Rust)             | 614ms     | 9M       | 1.72x |
+| [clickhouse-go][go] (Go)                   | 3.1s      | 85M      | 8.7x  |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s       | 702M     | 28x   |
+| [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s       | 7.2M     | 28x   |
+| [clickhouse-driver][py] (Python)           | 37s       | 60M      | 106x  |
+| [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s     | 13M      | 729x  |
 
 [client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
 [faster]:  https://github.com/go-faster/ch "go-faster/ch"
