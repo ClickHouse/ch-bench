@@ -14,7 +14,9 @@ import (
 )
 
 func run(ctx context.Context) error {
-	c, err := ch.Dial(ctx, "localhost:9000", ch.Options{})
+	c, err := ch.Dial(ctx, "localhost:9000", ch.Options{
+		Compression: ch.CompressionLZ4,
+	})
 	if err != nil {
 		return errors.Wrap(err, "dial")
 	}
@@ -27,8 +29,8 @@ func run(ctx context.Context) error {
 	}
 	start := time.Now()
 	const (
-		totalBlocks = 500
-		rowsInBlock = 1_000_000
+		totalBlocks = 5000
+		rowsInBlock = 60_000
 		totalRows   = totalBlocks * rowsInBlock
 		totalBytes  = totalRows * (64 / 8)
 	)

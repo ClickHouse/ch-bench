@@ -12,6 +12,9 @@ import (
 
 func run(ctx context.Context) error {
 	c, err := clickhouse.Open(&clickhouse.Options{
+		Compression: &clickhouse.Compression{
+			Method: clickhouse.CompressionLZ4,
+		},
 		Addr: []string{"127.0.0.1:9000"},
 		Auth: clickhouse.Auth{
 			Database: "default",
@@ -27,8 +30,8 @@ func run(ctx context.Context) error {
 	}
 	start := time.Now()
 	const (
-		totalBlocks = 500
-		rowsInBlock = 1_000_000
+		totalBlocks = 5000
+		rowsInBlock = 60_000
 		totalRows   = totalBlocks * rowsInBlock
 		totalBytes  = totalRows * (64 / 8)
 	)
