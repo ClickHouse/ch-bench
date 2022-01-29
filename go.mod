@@ -1,9 +1,9 @@
-module ch-bench68
+module ch-bench
 
 go 1.17
 
 require (
-	github.com/ClickHouse/clickhouse-go v1.5.1
+	github.com/ClickHouse/clickhouse-go/v2 v2.0.0-alpha.1
 	github.com/dustin/go-humanize v1.0.0
 	github.com/go-faster/ch v0.13.0
 	github.com/go-faster/errors v0.5.0
@@ -13,8 +13,6 @@ require (
 )
 
 require (
-	github.com/ClickHouse/clickhouse-go/v2 v2.0.0-alpha.1 // indirect
-	github.com/cloudflare/golz4 v0.0.0-20150217214814-ef862a3cdc58 // indirect
 	github.com/dmarkham/enumer v1.5.3 // indirect
 	github.com/go-faster/city v0.6.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
