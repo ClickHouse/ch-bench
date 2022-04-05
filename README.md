@@ -28,6 +28,7 @@ is significantly higher, so results can be slightly surprising.
 | [clickhouse-cpp][cpp] (C++)                | 523ms     | **6.9M** | 1.47x |
 | [clickhouse_driver][rs] (Rust)             | 614ms     | 9M       | 1.72x |
 | [clickhouse-go][go] (Go)                   | 3.1s      | 85M      | 8.7x  |
+| [uptrace][uptrace] (Go)                    | 9.3s      | 5G       | 20x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s       | 702M     | 28x   |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s       | 7.2M     | 28x   |
 | [clickhouse-driver][py] (Python)           | 37s       | 60M      | 106x  |
@@ -43,6 +44,7 @@ is significantly higher, so results can be slightly surprising.
 [py]:      https://github.com/mymarilyn/clickhouse-driver
 [go]:      https://github.com/ClickHouse/clickhouse-go "Golang driver for ClickHouse (Official)"
 [mail]:    https://github.com/mailru/go-clickhouse "Golang SQL database driver (HTTP, TSV format)"
+[uptrace]: https://github.com/uptrace/go-clickhouse "ClickHouse client for Go 1.18+ (Uptrace)"
 
 See [RESULTS.md](./RESULTS.md) and [RESULTS.slow.md](./RESULTS.slow.md).
 

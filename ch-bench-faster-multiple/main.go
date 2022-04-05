@@ -32,7 +32,7 @@ func run(ctx context.Context) error {
 	g, ctx := errgroup.WithContext(ctx)
 	for i := 0; i < arg.Workers; i++ {
 		g.Go(func() error {
-			c, err := ch.Dial(ctx, "localhost:9000", ch.Options{})
+			c, err := ch.Dial(ctx, ch.Options{})
 			if err != nil {
 				return errors.Wrap(err, "dial")
 			}
