@@ -17,6 +17,9 @@ func run(ctx context.Context) error {
 			Username: "default",
 			Password: "",
 		},
+		Compression: &clickhouse.Compression{
+			Method: clickhouse.CompressionLZ4,
+		},
 	})
 	if err != nil {
 		return err
