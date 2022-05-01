@@ -1,4 +1,5 @@
 .PHONY: ch-bench-chconn
+.PHONY: ch-bench-uptrace
 .PHONY: ch-bench-faster
 .PHONY: ch-bench-rust
 .PHONY: ch-bench-rust-driver
@@ -12,6 +13,9 @@ ch-bench-chconn:
 
 ch-bench-faster:
 	go build -o bin ./ch-bench-faster
+
+ch-bench-uptrace:
+	go build -o bin ./ch-bench-uptrace
 
 ch-bench-official:
 	go build -o bin ./ch-bench-official
