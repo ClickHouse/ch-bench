@@ -1,4 +1,5 @@
 .PHONY: ch-bench-chconn
+.PHONY: ch-bench-uptrace
 .PHONY: ch-bench-faster
 .PHONY: ch-bench-rust
 .PHONY: ch-bench-rust-driver
@@ -12,6 +13,9 @@ ch-bench-chconn:
 
 ch-bench-faster:
 	go build -o bin ./ch-bench-faster
+
+ch-bench-uptrace:
+	go build -o bin ./ch-bench-uptrace
 
 ch-bench-official:
 	go build -o bin ./ch-bench-official
@@ -34,7 +38,7 @@ ch-bench-rust-http:
 	rm -f ./bin/ch-bench-rust-http
 	cp ./ch-bench-rust-http/target/release/ch-bench-rust-http ./bin/ch-bench-rust-http
 
-build: ch-bench-chconn ch-bench-faster ch-bench-rust ch-bench-rust-http ch-bench-mailru ch-bench-official ch-bench-rust-driver
+build: ch-bench-chconn ch-bench-official ch-bench-faster ch-bench-uptrace ch-bench-rust ch-bench-rust-http ch-bench-mailru ch-bench-official ch-bench-rust-driver
 
 run:
 	hyperfine -w 10 -r 100 \
@@ -43,6 +47,7 @@ run:
 	  ./bin/ch-bench-chconn -n vahid-sohrabloo/chconn \
 	  ./bin/ch-bench-rust-driver -n clickhouse_driver_rust \
 	  ./bin/ch-bench-official -n clickhouse-go  \
+	  ./bin/ch-bench-uptrace -n uptrace  \
 	  'clickhouse-client -q "SELECT number FROM system.numbers_mt LIMIT 500000000" --format Null --time' -n clickhouse-client \
 	  --export-markdown RESULTS.md
 run-slow:

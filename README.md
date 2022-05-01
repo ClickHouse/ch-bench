@@ -22,13 +22,13 @@ is significantly higher, so results can be slightly surprising.
 
 | Name                                       | Time      | RAM      | Ratio |
 |--------------------------------------------|-----------|----------|-------|
-| **[go-faster/ch][faster]** (Go)            | **356ms** | 9M       | ~1x   |
+| **[go-faster/ch][faster]** (Go)            | **401ms** | 9M       | ~1x   |
 | [clickhouse-client][client] (C++)          | 387ms     | 91M      | ~1x   |
-| [vahid-sohrabloo/chconn][vahid] (Go)       | 416ms     | 9M       | ~1x   |
-| [clickhouse-cpp][cpp] (C++)                | 523ms     | **6.9M** | 1.47x |
+| [vahid-sohrabloo/chconn][vahid] (Go)       | 472ms     | 9M       | ~1x   |
+| [clickhouse-cpp][cpp] (C++)                | 516ms     | **6.9M** | 1.47x |
 | [clickhouse_driver][rs] (Rust)             | 614ms     | 9M       | 1.72x |
-| [clickhouse-go][go] (Go)                   | 3.1s      | 85M      | 8.7x  |
-| [uptrace][uptrace] (Go)                    | 9.3s      | 5G       | 20x   |
+| [uptrace][uptrace] (Go)                    | 4.8s      | 10M      | 12x   |
+| [clickhouse-go][go] (Go)                   | 6.5s      | 21M      | 16x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s       | 702M     | 28x   |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s       | 7.2M     | 28x   |
 | [clickhouse-driver][py] (Python)           | 37s       | 60M      | 106x  |
