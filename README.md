@@ -27,7 +27,7 @@ is significantly higher, so results can be slightly surprising.
 | [vahid-sohrabloo/chconn][vahid] (Go)       | 472ms | 9M   | ~1x   |
 | [clickhouse-cpp][cpp] (C++)                | 516ms | 6.9M | 1.47x |
 | [clickhouse_driver][rs] (Rust)             | 614ms | 9M   | 1.72x |
-| [uptrace][uptrace] (Go)                    | 4.8s  | 10M  | 12x   |
+| [uptrace][uptrace] (Go)                    | 1.2s  | 10M  | 3x    |
 | [clickhouse-go][go] (Go)                   | 6.5s  | 21M  | 16x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 10s   | 702M | 28x   |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s   | 7.2M | 28x   |
