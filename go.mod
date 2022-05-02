@@ -8,7 +8,7 @@ require (
 	github.com/go-faster/ch v0.24.0
 	github.com/go-faster/errors v0.5.0
 	github.com/mailru/go-clickhouse v1.8.0
-	github.com/uptrace/go-clickhouse v0.2.6
+	github.com/uptrace/go-clickhouse v0.2.7
 	github.com/vahid-sohrabloo/chconn v1.1.1
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 )

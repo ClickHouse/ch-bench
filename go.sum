@@ -96,9 +96,9 @@ github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81P
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.1 h1:5TQK59W5E3v0r2duFAb7P95B6hEeOyEnHRa8MjYSMTY=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
-github.com/uptrace/go-clickhouse v0.2.6 h1:qAEmL1SK4z8dlWbFy02Wh9Yfprlpvzuvv09fG7Esik8=
-github.com/uptrace/go-clickhouse v0.2.6/go.mod h1:znInLvQBSpBNA4FzJEnhE/W1kf5POMo37eIGStbuxZU=
-github.com/uptrace/go-clickhouse/chdebug v0.2.6 h1:44K/smCCEYMeD04nCjJfaNJkpd2VUUm/ssAg7wQHH+Q=
+github.com/uptrace/go-clickhouse v0.2.7 h1:GfQWNbzFLgoHgqAVlWdcHC/ZBeGRKzyc5iz/UjpTXKY=
+github.com/uptrace/go-clickhouse v0.2.7/go.mod h1:4x/wg7gVcIAHRM+zHhHcI/OtiC3p0yPeappWNN4MVvI=
+github.com/uptrace/go-clickhouse/chdebug v0.2.7 h1:CIMdiGjV9Wpgf5P03hTx2WRKoYyx8L7Nx+VET28kPb0=
 github.com/vahid-sohrabloo/chconn v1.1.1 h1:SbL/g+KHuwkK2oovZ47g2REOzY7Q34OJCsSGJ45CAkk=
 github.com/vahid-sohrabloo/chconn v1.1.1/go.mod h1:zSjg8gU3C7Ocr87Py4JKgiVOXQidWdHgiNZ+sH/lvKM=
 github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=

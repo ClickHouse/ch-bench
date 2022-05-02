@@ -10,7 +10,11 @@ import (
 )
 
 func run(ctx context.Context) error {
-	db := ch.Connect(ch.WithTimeout(time.Second * 30))
+	db := ch.Connect(
+		ch.WithCompression(false),
+		ch.WithTimeout(time.Second*30),
+	)
+	_ = db.Ping(ctx)
 
 	start := time.Now()
 	rows, err := db.QueryContext(ctx, "SELECT number FROM system.numbers_mt LIMIT 500000000")
