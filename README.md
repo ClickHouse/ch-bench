@@ -28,9 +28,9 @@ is significantly higher, so results can be slightly surprising.
 | [clickhouse-cpp][cpp] (C++)                   | 516ms | 6.9M | 1.47x |
 | [clickhouse_driver][rs] (Rust)                | 614ms | 9M   | 1.72x |
 | [uptrace][uptrace] (Go)                       | 1.2s  | 8M   | 3x    |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)          | 6.4s  | 121M | 16x   |
 | [clickhouse-go][go] (Go)                      | 6.5s  | 21M  | 16x   |
-| [clickhouse-client][java-client] (Java, HTTP) | 10s   | 702M | 28x   |
-| [clickhouse-jdbc][jdbc] (Java, HTTP)          | 10s   | 702M | 28x   |
+| [clickhouse-client][java-client] (Java, HTTP) | 7.2s  | 120M | 18x   |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP)    | 10s   | 7.2M | 28x   |
 | [clickhouse-driver][py] (Python)              | 37s   | 60M  | 106x  |
 | [mailru/go-clickhouse][mail] (Go, HTTP)       | 4m13s | 13M  | 729x  |

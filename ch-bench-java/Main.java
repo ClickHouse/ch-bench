@@ -23,6 +23,7 @@ import com.clickhouse.jdbc.ClickHouseDriver;
 
 public class Main {
     static int useJavaClient(String url, String sql, String[] args) throws Exception {
+        System.out.println("Using Java client");
         int count = 0;
 
         String deser = args[0];
@@ -94,6 +95,7 @@ public class Main {
     }
 
     static int useJdbc(String url, String sql) throws SQLException {
+        System.out.println("Using jdbc");
         int count = 0;
 
         try (Connection conn = DriverManager.getConnection("jdbc:ch:" + url);
