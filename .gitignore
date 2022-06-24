@@ -1,6 +1,7 @@
 # Binaries for programs and plugins
 *.class
 *.jar
+*.jfr
 *.exe
 *.exe~
 *.dll
@@ -17,5 +18,6 @@
 # vendor/
 
 .idea
+.vscode
 
 bin/ch-*
