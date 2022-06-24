@@ -6,9 +6,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/ClickHouse/ch-go"
+	"github.com/ClickHouse/ch-go/proto"
 	"github.com/dustin/go-humanize"
-	"github.com/go-faster/ch"
-	"github.com/go-faster/ch/proto"
 	"github.com/go-faster/errors"
 )
 

@@ -12,8 +12,8 @@ import (
 	"github.com/go-faster/errors"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/go-faster/ch"
-	"github.com/go-faster/ch/proto"
+	"github.com/ClickHouse/ch-go"
+	"github.com/ClickHouse/ch-go/proto"
 )
 
 func run(ctx context.Context) error {

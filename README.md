@@ -20,28 +20,28 @@ Processed 500.07 million rows,
 Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
-| Name                                          | Time  | RAM  | Ratio |
-|-----------------------------------------------|-------|------|-------|
-| **[go-faster/ch][faster]** (Go)               | 401ms | 9M   | ~1x   |
-| [clickhouse-client][client] (C++)             | 387ms | 91M  | ~1x   |
-| [vahid-sohrabloo/chconn][vahid] (Go)          | 472ms | 9M   | ~1x   |
-| [clickhouse-cpp][cpp] (C++)                   | 516ms | 6.9M | 1.47x |
-| [clickhouse_driver][rs] (Rust)                | 614ms | 9M   | 1.72x |
-| [uptrace][uptrace] (Go)                       | 1.2s  | 8M   | 3x    |
-| [clickhouse-jdbc][jdbc] (Java, HTTP)          | 6.4s  | 121M | 16x   |
-| [clickhouse-go][go] (Go)                      | 6.5s  | 21M  | 16x   |
-| [clickhouse-client][java-client] (Java, HTTP) | 7.2s  | 120M | 18x   |
-| [loyd/clickhouse.rs][rs-http] (Rust, HTTP)    | 10s   | 7.2M | 28x   |
-| [clickhouse-driver][py] (Python)              | 37s   | 60M  | 106x  |
-| [mailru/go-clickhouse][mail] (Go, HTTP)       | 4m13s | 13M  | 729x  |
+| Name                                       | Time  | RAM  | Ratio |
+|--------------------------------------------|-------|------|-------|
+| **[ClickHouse/ch-go][ch]** (Go)            | 401ms | 9M   | ~1x   |
+| [clickhouse-client][client] (C++)          | 387ms | 91M  | ~1x   |
+| [vahid-sohrabloo/chconn][vahid] (Go)       | 472ms | 9M   | ~1x   |
+| [clickhouse-cpp][cpp] (C++)                | 516ms | 6.9M | 1.47x |
+| [clickhouse_driver][rs] (Rust)             | 614ms | 9M   | 1.72x |
+| [uptrace][uptrace] (Go)                    | 1.2s  | 8M   | 3x    |
+| [clickhouse-go][go] (Go)                   | 5.4s  | 21M  | 13.5x |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 6.4s  | 121M | 16x   |
+| [clickhouse-client][java] (Java, HTTP)     | 7.2s  | 120M | 18x   |
+| [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s   | 7.2M | 28x   |
+| [clickhouse-driver][py] (Python)           | 37s   | 60M  | 106x  |
+| [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s | 13M  | 729x  |
 
 [client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
-[faster]:  https://github.com/go-faster/ch "go-faster/ch"
+[ch]:      https://github.com/ClickHouse/ch-go "ClickHouse/ch-go"
 [rs]:      https://github.com/datafuse-extras/clickhouse_driver "datafuse-extras/clickhouse_driver"
 [rs-http]: https://github.com/loyd/clickhouse.rs "A typed client for ClickHouse (HTTP)"
 [cpp]:     https://github.com/ClickHouse/clickhouse-cpp "C++ client library for ClickHouse (Official)"
 [vahid]:   https://github.com/vahid-sohrabloo/chconn "Low-level ClickHouse database driver for Golang"
-[java-client]:    https://github.com/ClickHouse/clickhouse-jdbc/tree/develop/clickhouse-client "Java client for ClickHouse (Official)"
+[java]:    https://github.com/ClickHouse/clickhouse-jdbc/tree/develop/clickhouse-client "Java client for ClickHouse (Official)"
 [jdbc]:    https://github.com/ClickHouse/clickhouse-jdbc/tree/develop/clickhouse-jdbc "JDBC driver for ClickHouse (Official)"
 [py]:      https://github.com/mymarilyn/clickhouse-driver
 [go]:      https://github.com/ClickHouse/clickhouse-go "Golang driver for ClickHouse (Official)"
@@ -74,7 +74,7 @@ this correlates with top results.
 
 For example, one of [go-faster/ch][faster] results is `390ms 500000000 rows 4.0 GB 10 GB/s`.
 
-I've also implemented [mock server in Go](https://github.com/go-faster/ch/blob/main/internal/cmd/ch-bench-server/main.go) that simulates ClickHouse server to reduce
+I've also implemented [mock server in Go](https://github.com/ClickHouse/ch-go/blob/main/internal/cmd/ch-bench-server/main.go) that simulates ClickHouse server to reduce
 overhead, because currently the main bottleneck in this test is server itself (and probably localhost).
 The [go-faster/ch][faster]  was able
 to achieve `257ms 500000000 rows 4.0 GB 16 GB/s` which should be maximum
