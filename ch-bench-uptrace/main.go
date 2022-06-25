@@ -23,7 +23,10 @@ func run(ctx context.Context) error {
 	}
 	var count int
 	for rows.Next() {
-		count++
+		var value uint64 // <- value is read
+		if err := rows.Scan(&value); err != nil {
+			return err
+		}
 	}
 
 	fmt.Println(time.Since(start).Round(time.Millisecond), count)

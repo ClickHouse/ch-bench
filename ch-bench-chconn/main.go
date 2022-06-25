@@ -30,7 +30,7 @@ func run(ctx context.Context) error {
 		if err := s.NextColumn(colRead); err != nil {
 			return errors.Wrap(err, "column")
 		}
-		data = data[:0]
+		data = data[:0] // <- value is read
 		colRead.ReadAllUnsafe(&data)
 	}
 	if err := s.Err(); err != nil {

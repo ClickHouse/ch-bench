@@ -32,7 +32,8 @@ func run(ctx context.Context) error {
 			return nil
 		},
 		OnResult: func(ctx context.Context, block proto.Block) error {
-			gotRows += uint64(block.Rows)
+			gotRows += uint64(data.Rows())
+			_ = data // value is read into proto.ColUInt64, which is []uint64
 			return nil
 		},
 		Result: proto.Results{
