@@ -1,5 +1,15 @@
 #!/bin/bash
 
+#
+# Java client:
+#   - ./run.sh long
+#   - ./run.sh record
+#   - ./run.sh skip
+#   - OPTS="-Xms24m -Xmx24m" ./run.sh long
+#
+# JDBC driver: ./run.sh
+#
+
 set -e
 
 : ${SQL:="SELECT number FROM system.numbers_mt LIMIT 500000000"}
@@ -18,7 +28,8 @@ else
     echo "Found $PKG"
 fi
 
-if [ ! -f "Main.class" ]; then
+if [ ! -f "Main.class" ] || [ "Main.java" -nt "Main.class" ]; then
+    rm -fv Main.class
     echo "Compiling..."
     javac -cp "$PKG" Main.java
 else

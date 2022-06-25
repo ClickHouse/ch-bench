@@ -22,9 +22,9 @@ import com.clickhouse.jdbc.ClickHouseConnection;
 import com.clickhouse.jdbc.ClickHouseDriver;
 
 public class Main {
-    static int useJavaClient(String url, String sql, String[] args) throws Exception {
+    static long useJavaClient(String url, String sql, String[] args) throws Exception {
         System.out.println("Using Java client");
-        int count = 0;
+        long count = 0L;
 
         String deser = args[0];
         ClickHouseNodes servers = ClickHouseNodes.of(url);
@@ -42,18 +42,22 @@ public class Main {
                     count++;
                 }
             } else if ("bytes".equalsIgnoreCase(deser)) {
-                int batchSize = 1000;
+                int batch = 1000;
                 if (args.length > 1 && !ClickHouseChecker.isNullOrBlank(args[1])) {
-                    batchSize = Integer.parseInt(args[1]);
+                    batch = Integer.parseInt(args[1]);
+                }
+                int size = 1;
+                if (args.length > 2 && !ClickHouseChecker.isNullOrBlank(args[2])) {
+                    size = Integer.parseInt(args[2]);
                 }
                 while (true) {
                     try {
-                        count += input.readBuffer(batchSize).length();
+                        count += input.readBuffer(batch).length();
                     } catch (EOFException e) {
                         break;
                     }
-                    count++;
                 }
+                count = count / size;
             } else if ("long".equalsIgnoreCase(deser)) {
                 while (true) {
                     try {
@@ -64,13 +68,13 @@ public class Main {
                     count++;
                 }
             } else if ("longs".equalsIgnoreCase(deser)) {
-                int batchSize = 1000;
+                int batch = 1000;
                 if (args.length > 1 && !ClickHouseChecker.isNullOrBlank(args[1])) {
-                    batchSize = Integer.parseInt(args[1]);
+                    batch = Integer.parseInt(args[1]);
                 }
                 while (true) {
                     try {
-                        count += input.readBuffer(batchSize).asLongArray().length;
+                        count += input.readBuffer(batch).asLongArray().length;
                     } catch (EOFException e) {
                         break;
                     }
@@ -84,6 +88,12 @@ public class Main {
                     }
                     count++;
                 }
+            } else if ("skip".equalsIgnoreCase(deser)) {
+                long batch = 8L;
+                if (args.length > 1 && !ClickHouseChecker.isNullOrBlank(args[1])) {
+                    batch = Long.parseLong(args[1]);
+                }
+                count = input.skip(Long.MAX_VALUE) / batch;
             } else {
                 for (ClickHouseRecord r : response.records()) {
                     count++;
@@ -94,9 +104,9 @@ public class Main {
         return count;
     }
 
-    static int useJdbc(String url, String sql) throws SQLException {
+    static long useJdbc(String url, String sql) throws SQLException {
         System.out.println("Using jdbc");
-        int count = 0;
+        long count = 0L;
 
         try (Connection conn = DriverManager.getConnection("jdbc:ch:" + url);
                 Statement stmt = conn.createStatement();
@@ -120,7 +130,7 @@ public class Main {
             sql = "SELECT number FROM numbers(500000000)";
         }
 
-        int count = args != null && args.length > 0 ? useJavaClient(url, sql, args) : useJdbc(url, sql);
+        long count = args != null && args.length > 0 ? useJavaClient(url, sql, args) : useJdbc(url, sql);
         System.out.println(String.format("%fs\t%d", (System.nanoTime() - time) / 1000000000.0, count));
     }
 }
