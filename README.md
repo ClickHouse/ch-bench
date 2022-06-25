@@ -29,8 +29,9 @@ is significantly higher, so results can be slightly surprising.
 | [clickhouse_driver][rs] (Rust)             | 614ms | 9M   | 1.72x |
 | [uptrace][uptrace] (Go)                    | 1.2s  | 8M   | 3x    |
 | [clickhouse-go][go] (Go)                   | 5.4s  | 21M  | 13.5x |
-| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 6.4s  | 121M | 16x   |
-| [clickhouse-client][java] (Java, HTTP)     | 7.2s  | 120M | 18x   |
+| [curl][curl] (C, HTTP)                     | 5.4s  | 21M  | 13.5x |
+| [clickhouse-client][java] (Java, HTTP)     | 6.4s  | 121M | 16x   |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 7.2s  | 120M | 18x   |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s   | 7.2M | 28x   |
 | [clickhouse-driver][py] (Python)           | 37s   | 60M  | 106x  |
 | [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s | 13M  | 729x  |
@@ -40,6 +41,7 @@ is significantly higher, so results can be slightly surprising.
 [rs]:      https://github.com/datafuse-extras/clickhouse_driver "datafuse-extras/clickhouse_driver"
 [rs-http]: https://github.com/loyd/clickhouse.rs "A typed client for ClickHouse (HTTP)"
 [cpp]:     https://github.com/ClickHouse/clickhouse-cpp "C++ client library for ClickHouse (Official)"
+[curl]:    https://github.com/curl/curl "A command-line tool for transferring data specified with URL syntax"
 [vahid]:   https://github.com/vahid-sohrabloo/chconn "Low-level ClickHouse database driver for Golang"
 [java]:    https://github.com/ClickHouse/clickhouse-jdbc/tree/develop/clickhouse-client "Java client for ClickHouse (Official)"
 [jdbc]:    https://github.com/ClickHouse/clickhouse-jdbc/tree/develop/clickhouse-jdbc "JDBC driver for ClickHouse (Official)"
