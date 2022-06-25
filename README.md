@@ -1,7 +1,7 @@
 # Benchmarks
 
 Totally **unscientific** and mostly unrealistic benchmark that
-[go-faster/ch][faster] project uses to understand performance.
+[ClickHouse/ch-go][ch] project uses to understand performance.
 
 The main goal is to measure minimal **client overhead** (CPU, RAM) to read data,
 i.e. data blocks deserialization and transfer.
@@ -56,18 +56,18 @@ is significantly higher, so results can be slightly surprising.
 See [RESULTS.md](./RESULTS.md) and [RESULTS.slow.md](./RESULTS.slow.md).
 
 <sub>
-Keeping `go-faster/ch`, `clickhouse-client` and `vahid-sohrabloo/chconn` to `~1x`, they are mostly equal.
+Keeping `ClickHouse/ch-go`, `clickhouse-client` and `vahid-sohrabloo/chconn` to `~1x`, they are mostly equal.
 </sub>
 
 ## Notes
 
 ### C++
 
-| Command                  |      Mean [ms] | Min [ms] | Max [ms] |    Relative |
-|:-------------------------|---------------:|---------:|---------:|------------:|
-| `go-faster`              |   598.8 ± 92.2 |    356.9 |    792.8 | 1.07 ± 0.33 |
-| `clickhouse-client`      |  561.9 ± 149.5 |    387.8 |   1114.2 |        1.00 |
-| `clickhouse-cpp`         |   574.4 ± 35.9 |    523.3 |    707.4 | 1.02 ± 0.28 |
+| Command             |     Mean [ms] | Min [ms] | Max [ms] |    Relative |
+|:--------------------|--------------:|---------:|---------:|------------:|
+| `ClickHouse/ch-go`  |  598.8 ± 92.2 |    356.9 |    792.8 | 1.07 ± 0.33 |
+| `clickhouse-client` | 561.9 ± 149.5 |    387.8 |   1114.2 |        1.00 |
+| `clickhouse-cpp`    |  574.4 ± 35.9 |    523.3 |    707.4 | 1.02 ± 0.28 |
 
 
 We are selecting **best** results, however C++ client has lower dispersion.
@@ -77,13 +77,13 @@ We are selecting **best** results, however C++ client has lower dispersion.
 I've measured my localhost performance using `iperf3`, getting 10 GiB/s,
 this correlates with top results.
 
-For example, one of [go-faster/ch][faster] results is `390ms 500000000 rows 4.0 GB 10 GB/s`.
+For example, one of [ClickHouse/ch-go][ch] results is `390ms 500000000 rows 4.0 GB 10 GB/s`.
 
 I've also implemented [mock server in Go](https://github.com/ClickHouse/ch-go/blob/main/internal/cmd/ch-bench-server/main.go) that simulates ClickHouse server to reduce
 overhead, because currently the main bottleneck in this test is server itself (and probably localhost).
-The [go-faster/ch][faster]  was able
+The [ClickHouse/ch-go][ch]  was able
 to achieve `257ms 500000000 rows 4.0 GB 16 GB/s` which should be maximum
 possible burst result, but I'm not 100% sure.
 
-On [go-faster/ch][faster] micro-benchmarks I'm getting up to 27 GB/s, not accounting of any
+On [ClickHouse/ch-go][ch] micro-benchmarks I'm getting up to 27 GB/s, not accounting of any
 network overhead (i.e. inmemory).
