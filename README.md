@@ -28,8 +28,8 @@ is significantly higher, so results can be slightly surprising.
 | [clickhouse-cpp][cpp] (C++)                | 516ms | 6.9M | 1.47x |
 | [clickhouse_driver][rs] (Rust)             | 614ms | 9M   | 1.72x |
 | [uptrace][uptrace] (Go)                    | 1.2s  | 8M   | 3x    |
+| [curl][curl] (C, HTTP)                     | 3.7s  | 10M  | 9x    |
 | [clickhouse-go][go] (Go)                   | 5.4s  | 21M  | 13.5x |
-| [curl][curl] (C, HTTP)                     | 5.4s  | 21M  | 13.5x |
 | [clickhouse-client][java] (Java, HTTP)     | 6.4s  | 121M | 16x   |
 | [clickhouse-jdbc][jdbc] (Java, HTTP)       | 7.2s  | 120M | 18x   |
 | [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s   | 7.2M | 28x   |
