@@ -21,23 +21,23 @@ Note: due to row-oriented design of most libraries, overhead per single row
 is significantly higher, so results can be slightly surprising.
 
 
-| Name                                       | Time  | RAM  | Ratio |
-|--------------------------------------------|-------|------|-------|
-| **[ClickHouse/ch-go][ch]** (Go)            | 401ms | 9M   | ~1x   |
-| [clickhouse-client][client] (C++)          | 387ms | 91M  | ~1x   |
-| [vahid-sohrabloo/chconn][vahid] (Go)       | 472ms | 9M   | ~1x   |
-| [clickhouse-cpp][cpp] (C++)                | 516ms | 6.9M | 1.47x |
-| [clickhouse_driver][rs] (Rust)             | 614ms | 9M   | 1.72x |
-| [curl][curl] (C, HTTP)                     | 3.7s  | 10M  | 9x    |
-| [clickhouse-client][java] (Java, HTTP)     | 6.4s  | 121M | 16x   |
-| [clickhouse-jdbc][jdbc] (Java, HTTP)       | 7.2s  | 120M | 18x   |
-| [loyd/clickhouse.rs][rs-http] (Rust, HTTP) | 10s   | 7.2M | 28x   |
-| [uptrace][uptrace][^1] (Go)                | 22s   | 13M  | 55x   |
-| [clickhouse-driver][py] (Python)           | 37s   | 60M  | 106x  |
-| [ClickHouse/clickhouse-go][go][^1] (Go)    | 46.8s | 23M  | 117x  |
-| [mailru/go-clickhouse][mail] (Go, HTTP)    | 4m13s | 13M  | 729x  |
+| Name                                          | Time  | RAM  | Ratio |
+|-----------------------------------------------|-------|------|-------|
+| **[ClickHouse/ch-go][ch]** (Go)               | 401ms | 9M   | ~1x   |
+| [clickhouse-client][client] (C++)             | 387ms | 91M  | ~1x   |
+| [vahid-sohrabloo/chconn][vahid] (Go)          | 472ms | 9M   | ~1x   |
+| [clickhouse-cpp][cpp] (C++)                   | 516ms | 6.9M | 1.47x |
+| [clickhouse_driver][rs] (Rust)                | 614ms | 9M   | 1.72x |
+| [curl][curl] (C, HTTP)                        | 3.7s  | 10M  | 9x    |
+| [clickhouse-client][java] (Java, HTTP)        | 6.4s  | 121M | 16x   |
+| [clickhouse-jdbc][jdbc] (Java, HTTP)          | 7.2s  | 120M | 18x   |
+| [loyd/clickhouse.rs][rs-http] (Rust, HTTP)    | 10s   | 7.2M | 28x   |
+| [uptrace][uptrace] (Go)[^reflect]             | 22s   | 13M  | 55x   |
+| [clickhouse-driver][py] (Python)              | 37s   | 60M  | 106x  |
+| [ClickHouse/clickhouse-go][go] (Go)[^reflect] | 46.8s | 23M  | 117x  |
+| [mailru/go-clickhouse][mail] (Go, HTTP)       | 4m13s | 13M  | 729x  |
 
-[^1]: Uses reflection on `row.Scan(&value)` which causes additional overhead.
+[^reflect]: Uses reflection on `row.Scan(&value)` which causes additional overhead.
 
 [client]:  https://clickhouse.com/docs/en/interfaces/cli/ "Native command-line client (Official)"
 [ch]:      https://github.com/ClickHouse/ch-go "ClickHouse/ch-go"
