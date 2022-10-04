@@ -1,0 +1,14 @@
+{
+    "name": "ch-bench-clickhouse-js",
+    "engines": {
+      "node": ">=14"
+    },
+    "type": "module",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "@clickhouse/client": "0.0.5"
+    },
+    "main": "index.js"
+}
