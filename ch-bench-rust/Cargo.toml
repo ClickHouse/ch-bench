@@ -9,7 +9,7 @@ edition = "2018"
 futures = "*"
 clickhouse-rs = "1.0.0-alpha.1"
 futures-util = "*"
-tokio = { version = "1.14.0", features = ["full"] }
+tokio = { version = "1.18.5", features = ["full"] }
 
 [profile.release-adjusted]
 inherits = "release"
