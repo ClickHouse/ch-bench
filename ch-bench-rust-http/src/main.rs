@@ -1,6 +1,6 @@
-use serde::{Deserialize};
+use serde::Deserialize;
 
-use clickhouse::{error::Result, Client, Row};
+use clickhouse::{error::Result, Client, Compression, Row};
 
 #[derive(Row, Deserialize)]
 struct Data {
@@ -10,6 +10,7 @@ struct Data {
 #[tokio::main]
 async fn main() -> Result<()> {
     let client = Client::default()
+        .with_compression(Compression::None)
         .with_url("http://localhost:8123");
 
     let mut cursor = client
